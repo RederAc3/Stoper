@@ -12,19 +12,20 @@ body {
     align-items: center;
 }
 
-body .stopwatch {
+body #app .stopwatch {
+    text-align: center;
     padding: 40px 60px;
     border-radius: 20px;
     /* color: #b0b3b5; */
 }
 
-body .controls .button { 
+body #app .controls .button { 
     padding: 20px;
     background: #6e8e9e;
     border-radius: 40px;
 }
 
-body .controls .button:active { 
+body #app .controls .button:active { 
     padding: 15px;
     margin: 5px;
 }

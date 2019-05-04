@@ -1,76 +1,104 @@
-function pad0(value) {
-    let result = value.toString();
-    if(result.length < 2) {
-        result = '0' + result
+// function pad0(value) {
+//     let result = value.toString();
+//     if (result.length < 2) {
+//         result = '0' + result
+//     }
+//     return result;
+// }
+
+// class Stopwatch {
+//     constructor(display) {
+//         this.running = false;
+//         this.display = display;
+//         this.reset();
+//         this.print(this.times);
+//     }
+
+//     reset() {
+//         this.times = {
+//             minutes: 0,
+//             seconds: 0,
+//             miliseconds: 0
+//         }
+//     }
+
+//     print() {
+//         this.display.innerText = this.format(this.times);
+//     }
+
+//     format(times) {
+//         return `${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
+//     }
+
+//     start() {
+//         if (!this.running) {
+//             this.running = true;
+//             this.watch = setInterval(() => this.step(), 10)
+//         }
+//     }
+
+//     step() {
+//         if (!this.running) return
+//         this.calculate();
+//         this.print();
+//     }
+
+//     calculate() {
+//         this.times.miliseconds += 1;
+//         if (this.times.miliseconds >= 100) {
+//             this.times.seconds += 1;
+//             this.times.miliseconds = 0;
+//         }
+//         if (this.times.seconds >= 60) {
+//             this.times.minutes += 1;
+//             this.times.seconds = 0;
+//         }
+//     }
+
+//     stop() {
+//         this.running = false;
+//         clearInterval(this.watch);
+//     }
+// }
+
+// const stopwatch = new Stopwatch(document.querySelector('.stopwatch'));
+
+// let startButton = document.getElementById('start');
+// startButton.addEventListener('click', () => stopwatch.start());
+
+// let stopButton = document.getElementById('stop');
+// stopButton.addEventListener('click', () => stopwatch.stop());
+
+// let resetButton = document.getElementById('reset');
+// resetButton.addEventListener('click', () => {
+//     stopwatch.reset();
+//     stopwatch.print();
+// });
+
+
+
+
+class Stopwatch extends React.Component {
+    constructor(props) {
+        super(props);//co to jest ten suter()?
+        this.state = {
+            running: false
+        };
     }
-    return result;
+
+    render() {
+        //wyrzyca błąd coś z tym renderem 
+        <div className={'hero'}>
+            <div className={'stopwatch'}></div>
+            <nav className={'controls'}>
+                <a href="#" className={'button'} id="start">Start</a>
+                <a href="#" className={'button'} id="stop">Stop</a>
+                <a href="#" className={'button'} id="reset">Reset</a>
+            </nav>
+            <ul className={'results'}></ul>
+        </div>
+    }
 }
 
-class Stopwatch {
-    constructor(display) {
-        this.running = false;
-        this.display = display;
-        this.reset();
-        this.print(this.times);
-    }
-
-    reset() {
-        this.times = {
-            minutes: 0,
-            seconds: 0,
-            miliseconds: 0
-        }
-    }
-
-    print() {
-        this.display.innerText = this.format(this.times);
-    }
-
-    format(times) {
-        return `${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
-    }
-
-    start() {
-        if (!this.running) {
-            this.running = true;
-            this.watch = setInterval(() => this.step(), 10)
-        }
-    }
-
-    step() {
-        if (!this.running) return 
-            this.calculate();
-            this.print();
-    }
-
-    calculate() {
-        this.times.miliseconds += 1;
-        if (this.times.miliseconds >= 100) {
-            this.times.seconds += 1;
-            this.times.miliseconds = 0;
-        }
-        if (this.times.seconds >= 60) {
-            this.times.minutes += 1;
-            this.times.seconds = 0;
-        }
-    }
-
-    stop() {
-        this.running = false;
-        clearInterval(this.watch);
-    }
-}
-
-const stopwatch = new Stopwatch(document.querySelector('.stopwatch'));
-
-let startButton = document.getElementById('start');
-startButton.addEventListener('click', () => stopwatch.start());
-
-let stopButton = document.getElementById('stop');
-stopButton.addEventListener('click', () => stopwatch.stop());
-
-let resetButton = document.getElementById('reset');
-resetButton.addEventListener('click', () => {
-    stopwatch.reset();
-    stopwatch.print();
-});
+var app = <Stopwatch />;
+ReactDOM.render(app, document.getElementById('app'));
