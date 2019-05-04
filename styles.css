@@ -1,31 +1,44 @@
 * {
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 40px;
+    font-size: 30px;
     background: #607d8b;
     color: #b0b3b5;
+    text-align: center;
 }
 
 body {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-body #app .stopwatch {
+body #app .container .active .stopWatch {
     text-align: center;
+    font-size: 60px;
     padding: 40px 60px;
     border-radius: 20px;
-    /* color: #b0b3b5; */
+}
+
+body #app .controls {
+    height: 70px;
 }
 
 body #app .controls .button { 
-    padding: 20px;
+    font-size: 15px;
+    padding: 15px;
+    margin: 10px;
     background: #6e8e9e;
     border-radius: 40px;
 }
 
 body #app .controls .button:active { 
-    padding: 15px;
-    margin: 5px;
+    padding: 10px;
+    margin: 15px;
 }
+
+body #app .container .results    { 
+    display: flex;
+    flex-direction: column-reverse;
+}
+
